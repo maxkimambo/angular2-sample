@@ -9,7 +9,7 @@
 		System.config({
 			packages: {'app': {defaultExtension: 'js'}}
 		});
-		System.import('app/bootstrap');
+		System.import('app/app-component/app.component').catch(console.log.bind(console));
 		</script>
 	</head>
 	<body>
