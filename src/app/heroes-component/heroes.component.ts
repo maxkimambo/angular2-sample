@@ -1,6 +1,6 @@
-import {Component, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component, FORM_DIRECTIVES, CORE_DIRECTIVES, OnInit} from 'angular2/angular2';
 import {Hero} from '../hero';
-import {HEROES} from '../mock-heroes';
+import {HeroService} from '../hero.service';
 
 @Component({
   selector: 'my-heroes',
@@ -9,12 +9,19 @@ import {HEROES} from '../mock-heroes';
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class HeroesComponent {
-	public heroes = HEROES;
+	public heroes: Hero[];
 	public selectedHero: Hero;
+
+    constructor(private _heroService: HeroService){}
+
 	onSelect(hero:Hero){
 		this.selectedHero = hero;
 	}
 	getSelectedClass(hero: Hero) {
   		return { 'selected': hero === this.selectedHero };
 	}
+    onInit(){
+        this._heroService.getHeroes()
+        .then((heroes: Hero[]) => this.heroes = heroes);
+    }
 }
