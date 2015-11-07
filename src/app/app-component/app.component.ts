@@ -1,5 +1,5 @@
 import {Component, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
-import {HeroesComponent} from './heroes-component/heroes.component';
+import {HeroesComponent} from '../heroes-component/heroes.component';
 
 @Component({
 	selector: 'my-app',
