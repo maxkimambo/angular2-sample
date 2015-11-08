@@ -1,7 +1,7 @@
 # Dependency directory
 node_modules
 
-#JS files
+#JS files (auto generated with TS transpiler)
 *.js
 *.js.map
 

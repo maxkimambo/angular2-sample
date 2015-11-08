@@ -3,14 +3,14 @@ import {Hero} from '../hero';
 import {HeroService} from '../hero.service';
 
 @Component({
-    selector: 'my-heroes',
+    selector: 'my-heroes'
 })
 @View({
     templateUrl: 'app/heroes-component/heroes.component.html',
     styleUrls: ['app/heroes-component/heroes.component.css'],
     directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class HeroesComponent {
+export class HeroesComponent implements OnInit{
 	public heroes: Hero[];
 	public selectedHero: Hero;
 
