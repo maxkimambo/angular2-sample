@@ -1,12 +1,14 @@
-import {Component, FORM_DIRECTIVES, CORE_DIRECTIVES, OnInit} from 'angular2/angular2';
+import {Component, View, FORM_DIRECTIVES, CORE_DIRECTIVES, OnInit} from 'angular2/angular2';
 import {Hero} from '../hero';
 import {HeroService} from '../hero.service';
 
 @Component({
-  selector: 'my-heroes',
-  templateUrl: 'app/heroes-component/heroes.component.html',
-  styleUrls: ['app/heroes-component/heroes.component.css'],
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
+    selector: 'my-heroes',
+})
+@View({
+    templateUrl: 'app/heroes-component/heroes.component.html',
+    styleUrls: ['app/heroes-component/heroes.component.css'],
+    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class HeroesComponent {
 	public heroes: Hero[];

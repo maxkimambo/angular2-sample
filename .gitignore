@@ -3,6 +3,7 @@ node_modules
 
 #JS files
 *.js
+*.js.map
 
 # Logs
 npm-debug.log*
