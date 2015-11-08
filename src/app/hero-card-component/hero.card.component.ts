@@ -5,14 +5,7 @@ import {Component, View} from 'angular2/angular2';
   properties: ['hero']
 })
 @View({
-  template: `
-  <div class="card grey lighten-3">
-	  <div class="card-content">
-	    <span class="card-title black-text">{{hero.name}}</span>
-	    <p class="grey-text text-darken-2">{{hero.id}}</p>
-	  </div>
-  </div>
-  `,
+  templateUrl: 'app/hero-card-component/hero.card.component.html'
 })
 export class HeroCardComponent {
 }

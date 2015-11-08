@@ -33,6 +33,7 @@ var routes = {
 class AppComponent {
 	public title = 'Tour of Heroes';
 }
+
 bootstrap(AppComponent, [
   ROUTER_BINDINGS,
   HeroService,
