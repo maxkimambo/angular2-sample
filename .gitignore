@@ -2,8 +2,8 @@
 node_modules
 
 #JS files (auto generated with TS transpiler)
-*.js
-*.js.map
+src/**/*.js
+src/**/*.map
 
 # Logs
 npm-debug.log*
