@@ -7,8 +7,8 @@ export class HeroService{
 }
 
 var HEROES: Hero[] = [
-	{ "id": 11, "name": "Superman"},
-	{ "id": 12, "name": "Spiderman"},
-	{ "id": 13, "name": "Wolferine"},
-	{ "id": 14, "name": "Hulk"}
+	{ "id": 1, "name": "Superman"},
+	{ "id": 2, "name": "Spiderman"},
+	{ "id": 3, "name": "Wolferine"},
+	{ "id": 4, "name": "Hulk"}
 ];
