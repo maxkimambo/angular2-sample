@@ -2,13 +2,14 @@ import {Component, View, FORM_DIRECTIVES, CORE_DIRECTIVES, OnInit} from 'angular
 import {Router} from 'angular2/router';
 import {Hero} from '../hero';
 import {HeroService} from '../hero.service';
+import {HeroCardComponent} from '../hero-card-component/hero.card.component';
 
 @Component({
 	selector: 'my-dashboard'
 })
 @View({
 	templateUrl: 'app/dashboard-component/dashboard.component.html',
-	directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
+	directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, HeroCardComponent]
 })
 export class DashboardComponent implements OnInit{
 	public heroes: Hero[];
