@@ -6,7 +6,7 @@ import {HeroService} from '../hero.service';
 
 var routes = {
   dashboard: {
-    path: '/',
+    path: '/dashboard',
     as: 'Dashboard',
     component: DashboardComponent,
     link: ['/Dashboard']
