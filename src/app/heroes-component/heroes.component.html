@@ -1,14 +1,17 @@
-<h3>Heroes:</h3>
+<h2>Heroes:</h2>
 <ul class="heroes">
 	<li *ng-for="#hero of heroes" [ng-class]="getSelectedClass(hero)" (click)="onSelect(hero)">
 		<span class="badge">{{heroes.indexOf(hero) + 1}}</span> {{hero.name}}
 	</li>
 </ul>
 <div *ng-if="selectedHero">
-	<h2>{{selectedHero.name}} details:</h2>
+	<h3>{{selectedHero.name}} details:</h3>
 	<div><label>Name: </label>{{selectedHero.name}}</div>
 	<div>
 		<label>Score: </label>
 		<span><input [(ng-model)]="selectedHero.score" placeholder="place the score..."></span>
+	</div>
+	<div>
+		<button type="submit" (click)="onSubmit(selectedHero)">Save</button>
 	</div>
 </div>

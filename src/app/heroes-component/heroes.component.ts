@@ -14,7 +14,7 @@ import {HeroService} from '../hero.service';
 export class HeroesComponent implements OnInit{
 	public heroes: Hero[];
 	public selectedHero: Hero;
-    public myHero: string;
+    public submitted: boolean;
 
     constructor(private _heroService: HeroService){}
 
@@ -25,9 +25,14 @@ export class HeroesComponent implements OnInit{
   		return { 'selected': hero === this.selectedHero };
 	}
     onInit(){
-        this._heroService.getHeroes().then((heroes: Hero[]) => {
-            this.heroes = heroes;
-            this.myHero = heroes[0].name;
-        });
+        this.initList();
+    }
+    onSubmit(hero: Hero) {
+        this._heroService.saveList(hero);
+        this.initList();
+    }
+    initList(){
+        this._heroService.getHeroes()
+        .then((heroes: Hero[]) => this.heroes = heroes);
     }
 }

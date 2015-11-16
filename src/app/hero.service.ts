@@ -16,16 +16,36 @@ export class HeroService{
 			snapshot => this.addHeros(snapshot),
 			errorObject => console.log('The read failed', errorObject.code)
 		);
+		this.firebase.on('child_changed',
+			snapshot => this.handleChange(snapshot),
+			errorObject => console.log('The read failed', errorObject.code)
+		);
+	}
+
+	saveList(hero: Hero){
+		var userScoreRef = this.firebase.child("scoreList").child(hero.name);
+		userScoreRef.setWithPriority({ name:hero.name, score:hero.score }, hero.score);
+	}
+
+	getHeroes() {
+		return Promise.resolve(this.heroList);
 	}
 
 	private addHeros(snapshot: FirebaseDataSnapshot) {
 		var heroes = snapshot.val();
 		for(var i in heroes){
-			this.heroList.push(heroes[i]);
+			this.heroList.unshift(heroes[i]);
 		}
+		this.sortList();
 	}
 
-	getHeroes() {
-		return Promise.resolve(this.heroList);
+	private handleChange(snapshot: FirebaseDataSnapshot) {
+		this.sortList();
+	}
+
+	private sortList() {
+		this.heroList = this.heroList.sort((a, b) => {
+			return b.score - a.score;
+		});
 	}
 }
