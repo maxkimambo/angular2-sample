@@ -1,7 +1,8 @@
-import {Component, View, FORM_DIRECTIVES, CORE_DIRECTIVES, OnInit} from 'angular2/angular2';
+import {Component, View, CORE_DIRECTIVES, OnInit} from 'angular2/angular2';
 import {Router} from 'angular2/router';
 import {Hero} from '../hero';
 import {HeroService} from '../hero.service';
+import {DetailsComponent} from '../details-component/details.component';
 
 @Component({
     selector: 'my-heroes'
@@ -9,7 +10,7 @@ import {HeroService} from '../hero.service';
 @View({
     templateUrl: 'app/heroes-component/heroes.component.html',
     styleUrls: ['app/heroes-component/heroes.component.css'],
-    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
+    directives: [CORE_DIRECTIVES, DetailsComponent]
 })
 export class HeroesComponent implements OnInit{
 	public heroes: Hero[];
@@ -24,13 +25,6 @@ export class HeroesComponent implements OnInit{
   		return { 'selected': hero === this.selectedHero };
 	}
     onInit(){
-        this.initList();
-    }
-    onSubmit(hero: Hero) {
-        this._heroService.saveList(hero);
-        this.initList();
-    }
-    initList(){
         this._heroService.getHeroes()
         .then((heroes: Hero[]) => this.heroes = heroes);
     }

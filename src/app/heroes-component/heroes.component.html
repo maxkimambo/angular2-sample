@@ -5,13 +5,5 @@
 	</li>
 </ul>
 <div *ng-if="selectedHero">
-	<h3>{{selectedHero.name}} details:</h3>
-	<div><label>Name: </label>{{selectedHero.name}}</div>
-	<div>
-		<label>Score: </label>
-		<span><input [(ng-model)]="selectedHero.score" placeholder="place the score..."></span>
-	</div>
-	<div>
-		<button type="submit" (click)="onSubmit(selectedHero)">Save</button>
-	</div>
+	<hero-details [hero]="selectedHero"></hero-details>
 </div>

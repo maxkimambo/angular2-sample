@@ -1,0 +1,9 @@
+<h3>{{hero.name}} details:</h3>
+<div><label>Name: </label>{{hero.name}}</div>
+<div>
+	<label>Score: </label>
+	<span><input [(ng-model)]="hero.score" placeholder="place the score..."></span>
+</div>
+<div>
+	<button type="submit" (click)="onSubmit(hero)">Save</button>
+</div>
