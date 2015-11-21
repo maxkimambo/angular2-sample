@@ -14,7 +14,6 @@ import {HeroService} from '../hero.service';
 export class HeroesComponent implements OnInit{
 	public heroes: Hero[];
 	public selectedHero: Hero;
-    public submitted: boolean;
 
     constructor(private _heroService: HeroService){}
 

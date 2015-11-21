@@ -17,7 +17,7 @@ export class HeroService{
 			errorObject => console.log('The read failed', errorObject.code)
 		);
 		this.firebase.on('child_changed',
-			snapshot => this.handleChange(snapshot),
+			snapshot => this.sortList(),
 			errorObject => console.log('The read failed', errorObject.code)
 		);
 	}
@@ -36,10 +36,6 @@ export class HeroService{
 		for(var i in heroes){
 			this.heroList.unshift(heroes[i]);
 		}
-		this.sortList();
-	}
-
-	private handleChange(snapshot: FirebaseDataSnapshot) {
 		this.sortList();
 	}
 
