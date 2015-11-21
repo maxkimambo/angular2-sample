@@ -1,7 +1,7 @@
-angular2-tour of heroes
+Angular 2 application
 ===============
 
-Angular 2 application uses alpha 42
+Application uses alpha 42
 
 Online tutorial: https://angular.io/docs/ts/latest/tutorial/
 
