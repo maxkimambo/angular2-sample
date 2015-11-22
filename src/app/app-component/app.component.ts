@@ -1,4 +1,4 @@
-import {Component, View, bootstrap, provide} from 'angular2/angular2';
+import {Component, View, bootstrap} from 'angular2/angular2';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {HeroesComponent} from '../heroes-component/heroes.component';
 import {DashboardComponent} from '../dashboard-component/dashboard.component';

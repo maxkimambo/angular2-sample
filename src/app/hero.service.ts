@@ -4,6 +4,11 @@ import {Hero} from './hero';
 
 const FIREBASE_URL = 'https://radiant-torch-9235.firebaseio.com';
 
+export class Hero{
+	name: string;
+	score; number;
+}
+
 export class HeroService{
 	firebase : Firebase;
 	heroList : Hero[];
