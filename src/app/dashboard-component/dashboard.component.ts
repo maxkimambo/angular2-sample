@@ -1,4 +1,4 @@
-import {Component, View, FORM_DIRECTIVES, CORE_DIRECTIVES, OnInit} from 'angular2/angular2';
+import {Component, View, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
 import {Router} from 'angular2/router';
 import {Hero} from '../hero';
 import {HeroService} from '../hero.service';
@@ -11,7 +11,7 @@ import {HeroCardComponent} from '../hero-card-component/hero.card.component';
 	templateUrl: 'app/dashboard-component/dashboard.component.html',
 	directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, HeroCardComponent]
 })
-export class DashboardComponent implements OnInit{
+export class DashboardComponent{
 	public heroes: Hero[];
 
 	constructor(private _heroService: HeroService){}

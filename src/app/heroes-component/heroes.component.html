@@ -1,6 +1,6 @@
 <h2>Heroes:</h2>
 <ul class="heroes">
-	<li *ng-for="#hero of heroes" [ng-class]="getSelectedClass(hero)" (click)="onSelect(hero)">
+	<li *ng-for="#hero of heroes" (click)="onSelect(hero)">
 		<span class="badge">{{heroes.indexOf(hero) + 1}}</span> {{hero.name}}
 	</li>
 </ul>
