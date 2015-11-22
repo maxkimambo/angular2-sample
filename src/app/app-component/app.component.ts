@@ -4,22 +4,9 @@ import {HeroesComponent} from '../heroes-component/heroes.component';
 import {DashboardComponent} from '../dashboard-component/dashboard.component';
 import {HeroService} from '../hero.service';
 
-var routes = {
-    dashboard: {
-        path: '/',
-        as: 'Dashboard',
-        component: DashboardComponent
-    },
-    heroes: {
-        path: '/list',
-        as: 'Heroes',
-        component: HeroesComponent
-    }
-};
-
 @RouteConfig([
-  routes.dashboard,
-  routes.heroes,
+    {path: '/', as: 'Dashboard', component: DashboardComponent},
+    {path: '/list', as: 'Heroes', component: HeroesComponent}
 ])
 @Component({
 	selector: 'my-app',
