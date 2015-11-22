@@ -5,16 +5,16 @@ import {DashboardComponent} from '../dashboard-component/dashboard.component';
 import {HeroService} from '../hero.service';
 
 var routes = {
-  dashboard: {
-    path: '/',
-    as: 'Dashboard',
-    component: DashboardComponent
-  },
-  heroes: {
-    path: '/list',
-    as: 'Heroes',
-    component: HeroesComponent
-  }
+    dashboard: {
+        path: '/',
+        as: 'Dashboard',
+        component: DashboardComponent
+    },
+    heroes: {
+        path: '/list',
+        as: 'Heroes',
+        component: HeroesComponent
+    }
 };
 
 @RouteConfig([
