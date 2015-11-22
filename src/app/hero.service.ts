@@ -1,7 +1,5 @@
 /// <reference path="../../typings/firebase/firebase.d.ts" />
 
-import {Hero} from './hero';
-
 const FIREBASE_URL = 'https://radiant-torch-9235.firebaseio.com';
 
 export class Hero{

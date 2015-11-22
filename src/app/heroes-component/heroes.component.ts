@@ -1,7 +1,6 @@
 import {Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
 import {Router} from 'angular2/router';
-import {Hero} from '../hero';
-import {HeroService} from '../hero.service';
+import {Hero, HeroService} from '../hero.service';
 import {DetailsComponent} from '../details-component/details.component';
 
 @Component({
