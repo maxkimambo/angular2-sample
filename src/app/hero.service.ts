@@ -30,8 +30,8 @@ export class HeroService{
 		userScoreRef.setWithPriority({ name:hero.name, score:hero.score }, hero.score);
 	}
 
-	getHeroes() {
-		return Promise.resolve(this.heroList);
+	getHeroes() :Hero[]{
+		return this.heroList;
 	}
 
 	private addHeros(snapshot: FirebaseDataSnapshot) {

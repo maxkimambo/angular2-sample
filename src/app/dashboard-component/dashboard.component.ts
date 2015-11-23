@@ -11,12 +11,11 @@ import {HeroCardComponent} from '../hero-card-component/hero.card.component';
 	directives: [NgFor, HeroCardComponent]
 })
 export class DashboardComponent{
-	public heroes: Hero[];
 	//Dependency injection
 	constructor(private _heroService: HeroService){}
+
 	//function
-	onInit(){
-		this._heroService.getHeroes()
-        .then((heroes: Hero[]) => this.heroes = heroes);
+	getHeroes(){
+		return this._heroService.getHeroes();
 	}
 }

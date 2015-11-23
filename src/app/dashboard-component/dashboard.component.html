@@ -1,7 +1,7 @@
 <div class="row">
 </div>
 <div class="row">
-  <div *ng-for="#hero of heroes" class="col s12 m6 l4">
+  <div *ng-for="#hero of getHeroes()" class="col s12 m6 l4">
 	  <hero-card [hero]="hero"></hero-card>
   </div>
 </div>

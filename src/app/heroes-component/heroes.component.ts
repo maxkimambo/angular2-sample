@@ -12,7 +12,6 @@ import {DetailsComponent} from '../details-component/details.component';
     directives: [CORE_DIRECTIVES, DetailsComponent]
 })
 export class HeroesComponent{
-	public heroes: Hero[];
 	public selectedHero: Hero;
 
     constructor(private _heroService: HeroService){}
@@ -20,8 +19,7 @@ export class HeroesComponent{
 	onSelect(hero:Hero){
 		this.selectedHero = hero;
 	}
-    onInit(){
-        this._heroService.getHeroes()
-        .then((heroes: Hero[]) => this.heroes = heroes);
+    getHeroes(){
+        return this._heroService.getHeroes();
     }
 }
