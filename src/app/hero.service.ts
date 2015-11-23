@@ -1,6 +1,6 @@
 /// <reference path="../../typings/firebase/firebase.d.ts" />
 
-const FIREBASE_URL = 'https://radiant-torch-9235.firebaseio.com';
+const FIREBASE_URL = 'https://heroes2015.firebaseio.com/';
 
 export class Hero{
 	name: string;
@@ -16,30 +16,44 @@ export class HeroService{
 		this.heroList = [];
 
 		this.firebase.on('child_added',
-			snapshot => this.addHeros(snapshot),
+			snapshot => this.addHero(snapshot),
 			errorObject => console.log('The read failed', errorObject.code)
 		);
 		this.firebase.on('child_changed',
-			snapshot => this.sortList(),
+			snapshot => this.changeHero(snapshot),
 			errorObject => console.log('The read failed', errorObject.code)
 		);
 	}
 
-	saveList(hero: Hero){
-		var userScoreRef = this.firebase.child("scoreList").child(hero.name);
+	saveHero(hero: Hero){
+		var ref = this.firebase.child(hero.name);
 		var newValues = { name:hero.name, score:hero.score };
-	    userScoreRef.update(newValues);
+	    ref.update(newValues);
 	}
 
-	getHeroes() :Hero[]{
+	getHeroes():Hero[]{
 		return this.heroList;
 	}
 
-	private addHeros(snapshot: FirebaseDataSnapshot) {
-		var heroes = snapshot.val();
-		for(var i in heroes){
-			this.heroList.unshift(heroes[i]);
-		}
+	private addHero(snapshot: FirebaseDataSnapshot) {
+		var hero = snapshot.val();
+		this.heroList.unshift(hero);
+
+		this.sortList();
+	}
+
+	private changeHero(snapshot: FirebaseDataSnapshot) {
+		var key = snapshot.key();
+
+		this.heroList.some((hero, index) => {
+			if (hero.name === key) {
+				var updatedHero = snapshot.val();
+				// Update the hero.
+				this.heroList.splice(index, 1, updatedHero);
+				return true;
+			}
+		});
+
 		this.sortList();
 	}
 
