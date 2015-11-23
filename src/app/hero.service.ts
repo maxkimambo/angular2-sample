@@ -27,7 +27,8 @@ export class HeroService{
 
 	saveList(hero: Hero){
 		var userScoreRef = this.firebase.child("scoreList").child(hero.name);
-		userScoreRef.setWithPriority({ name:hero.name, score:hero.score }, hero.score);
+		var newValues = { name:hero.name, score:hero.score };
+	    userScoreRef.update(newValues);
 	}
 
 	getHeroes() :Hero[]{
