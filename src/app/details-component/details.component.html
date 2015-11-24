@@ -2,7 +2,9 @@
 <div><label>Name: </label>{{hero.name}}</div>
 <div>
 	<form (ng-submit)="onSubmit(hero)">
+		<input type="text" [(ng-model)]="hero.name" placeholder="Name">
 		<input type="text" [(ng-model)]="hero.score" placeholder="place the score...">
-	<button type="submit"  class="btn blue darken-4">Save</button>
+		<input type="text" [(ng-model)]="hero.skills" placeholder="particular set of skills">
+	<button type="submit"  class="btn btn-success">Save</button>
 	</form>
 </div>
