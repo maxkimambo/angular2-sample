@@ -1,9 +1,6 @@
-<h3>{{hero.name}} details:</h3>
+<h3>{{hero.name}}'s score:</h3>
 <div><label>Name: </label>{{hero.name}}</div>
 <div>
-	<label>Score: </label>
-	<span><input [(ng-model)]="hero.score" placeholder="place the score..."></span>
-</div>
-<div>
+	<input type="text" [(ng-model)]="hero.score" placeholder="place the score...">
 	<button type="submit"  class="btn blue darken-4" (click)="onSubmit(hero)">Save</button>
 </div>
