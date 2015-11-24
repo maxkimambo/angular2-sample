@@ -1,7 +1,12 @@
-<div class="row">
-</div>
-<div class="row">
-  <div *ng-for="#hero of getHeroes()" class="col s12 m6 l4">
-	  <hero-card [hero]="hero"></hero-card>
-  </div>
-</div>
+
+ <div class="row">
+        <div class="col-md-3" *ng-for="#hero of getHeroes()">
+            <div class="thumbnail">
+                 <div class="caption">
+                    <h4 class="">{{hero.name}}</h4>
+						<hero-card [hero]="hero"></hero-card>
+                    <a href="#" class="btn btn-success btn" role="button">Rate</a>
+                </div>
+            </div>
+        </div>
+ </div>

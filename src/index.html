@@ -1,20 +1,30 @@
 <html>
-	<head>
-		<base href="/src/"/>
-		<script src="../node_modules/systemjs/dist/system.src.js"></script>
-		<script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
-		<script src="../node_modules/angular2/bundles/router.dev.js"></script>
-		<script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<script>
+
+<head>
+	<base href="/src/" />
+	<script src="../node_modules/systemjs/dist/system.src.js"></script>
+	<script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+	<script src="../node_modules/angular2/bundles/router.dev.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<!-- Bootstrap core CSS -->
+	<link href="assets/css/bootstrap.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="assets/css/main.css" rel="stylesheet">
+
+	
+	<script>
 		System.config({
 			packages: {'app': {defaultExtension: 'js'}}
 		});
 		System.import('app/app-component/app.component').catch(console.log.bind(console));
-		</script>
-	</head>
-	<body>
-		<my-app>Loading...</my-app>
-	</body>
+	</script>
+</head>
+
+<body>
+	<my-app>Loading...</my-app>
+</body>
+
 </html>
