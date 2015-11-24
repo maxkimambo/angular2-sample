@@ -5,7 +5,7 @@
 
 <ul class="heroes">
 	<li *ng-for="#hero of getHeroes()" (click)="onSelect(hero)">
-		<span class="badge">i</span> {{hero.name}}
+		<span class="text-success"><i class="fa fa-2x fa-user-secret"></i></span> {{hero.name}}
 	</li>
 </ul>
 <div *ng-if="selectedHero">
