@@ -31,6 +31,13 @@ export class HeroService{
 			},
 			errorObject => console.log('The read failed', errorObject.code)
 		);
+		this.firebase.on('child_removed',
+			snapshot => {
+				this.removeHero(snapshot);
+				this.sortList();
+			},
+			errorObject => console.log('The read failed', errorObject.code)
+		);
 	}
 
 	save(hero: Hero){
@@ -45,11 +52,28 @@ export class HeroService{
 
 	add(name: string, score: string, skills: string){
 		var newHero = { name:name, score:score, skills: skills };
-	  this.firebase.push(newHero);
+		this.firebase.push(newHero);
 	}
 
 	getHeroes():Hero[]{
 		return this.heroList;
+	}
+
+	remove(hero: Hero){
+		var ref = this.firebase.child(hero.key);
+		ref.remove();
+	}
+
+	private removeHero(snapshot: FirebaseDataSnapshot) {
+		var key = snapshot.key();
+
+		this.heroList.some((hero, index) => {
+			if (hero.key === key) {
+				//remove the hero.
+				this.heroList.splice(index, 1);
+				return true;
+			}
+		});
 	}
 
 	private changeHero(snapshot: FirebaseDataSnapshot) {
@@ -58,7 +82,7 @@ export class HeroService{
 		this.heroList.some((hero, index) => {
 			if (hero.key === key) {
 				var updatedHero = this.createHero(snapshot);
-				// Update the hero.
+				//update the hero.
 				this.heroList.splice(index, 1, updatedHero);
 				return true;
 			}

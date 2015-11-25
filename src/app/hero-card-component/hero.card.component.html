@@ -1,10 +1,11 @@
 <div class="thumbnail">
     <div class="caption">
         <h4 class="">{{hero.name}}</h4>
-        <div class="card grey lighten-3">
-            <div class="text-muted">Points: {{hero.score}}</div>
-            <div class="text-muted">Skills: {{hero.skills}}</div>
-        </div>
-        <button class="btn btn-success btn" role="button" (click)="goToDetails($event)">Rate</button>
+        <div class="text-muted">Points: {{hero.score}}</div>
+        <div class="text-muted">Skills: {{hero.skills}}</div>
+        <p>
+            <a class="btn pull-right" (click)="removeHero(hero)">
+                <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+        </p>
     </div>
 </div>

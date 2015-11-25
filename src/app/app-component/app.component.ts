@@ -11,8 +11,7 @@ import {HeroService} from '../hero.service';
 @RouteConfig([
     {path: '/', as: 'Dashboard', component: DashboardComponent },
     {path: '/list', as: 'Heroes', component: HeroesComponent},
-    {path: '/add', as: 'Add', component: AddComponent },
-    {path: '/details', as: 'Details', component: DetailsComponent }
+    {path: '/add', as: 'Add', component: AddComponent }
 ])
 @Component({
 	selector: 'my-app',
