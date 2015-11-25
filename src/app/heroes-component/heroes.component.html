@@ -1,13 +1,21 @@
-<h2>Heroes</h2>
-<div>
-	
+<div class="row">
+	<div class="col">
+		<h2>Heroes list:</h2>
+	</div>
 </div>
-
-<ul class="heroes">
-	<li *ng-for="#hero of getHeroes()" (click)="onSelect(hero)">
-		<span class="text-success"><i class="fa fa-2x fa-user-secret"></i></span> {{hero.name}}
-	</li>
-</ul>
-<div *ng-if="selectedHero">
-	<hero-details [hero]="selectedHero"></hero-details>
+<div class="row">
+	<div class="col">
+		<ul class="heroes">
+			<li *ng-for="#hero of getHeroes()" (click)="onSelect(hero)">
+				<span class="text-success"><i class="fa fa-2x fa-user-secret"></i></span> {{hero.name}}
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<div *ng-if="selectedHero">
+			<hero-details [hero]="selectedHero"></hero-details>
+		</div>
+	</div>
 </div>

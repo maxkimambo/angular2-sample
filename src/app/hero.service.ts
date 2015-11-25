@@ -3,8 +3,10 @@
 const FIREBASE_URL = 'https://heroes2015.firebaseio.com/';
 
 export class Hero{
+	key: string;
 	name: string;
 	score: number;
+	skills: string;
 }
 
 export class HeroService{
@@ -16,45 +18,81 @@ export class HeroService{
 		this.heroList = [];
 
 		this.firebase.on('child_added',
-			snapshot => this.addHero(snapshot),
+			snapshot => {
+				this.heroList.push(this.createHero(snapshot));
+				this.sortList();
+			},
 			errorObject => console.log('The read failed', errorObject.code)
 		);
 		this.firebase.on('child_changed',
-			snapshot => this.changeHero(snapshot),
+			snapshot => {
+				this.changeHero(snapshot);
+				this.sortList();
+			},
+			errorObject => console.log('The read failed', errorObject.code)
+		);
+		this.firebase.on('child_removed',
+			snapshot => {
+				this.removeHero(snapshot);
+				this.sortList();
+			},
 			errorObject => console.log('The read failed', errorObject.code)
 		);
 	}
 
-	saveHero(hero: Hero){
-		var ref = this.firebase.child(hero.name);
-		var newValues = { name:hero.name, score:hero.score };
-	    ref.update(newValues);
+	save(hero: Hero){
+		var ref = this.firebase.child(hero.key);
+		var newValues = {
+			name:hero.name,
+			score:hero.score,
+			skills: hero.skills
+		};
+		ref.update(newValues);
+	}
+
+	add(name: string, score: string, skills: string){
+		var newHero = { name:name, score:score, skills: skills };
+		this.firebase.push(newHero);
 	}
 
 	getHeroes():Hero[]{
 		return this.heroList;
 	}
 
-	private addHero(snapshot: FirebaseDataSnapshot) {
-		var hero = snapshot.val();
-		this.heroList.unshift(hero);
+	remove(hero: Hero){
+		var ref = this.firebase.child(hero.key);
+		ref.remove();
+	}
 
-		this.sortList();
+	private removeHero(snapshot: FirebaseDataSnapshot) {
+		var key = snapshot.key();
+
+		this.heroList.some((hero, index) => {
+			if (hero.key === key) {
+				//remove the hero.
+				this.heroList.splice(index, 1);
+				return true;
+			}
+		});
 	}
 
 	private changeHero(snapshot: FirebaseDataSnapshot) {
 		var key = snapshot.key();
 
 		this.heroList.some((hero, index) => {
-			if (hero.name === key) {
-				var updatedHero = snapshot.val();
-				// Update the hero.
+			if (hero.key === key) {
+				var updatedHero = this.createHero(snapshot);
+				//update the hero.
 				this.heroList.splice(index, 1, updatedHero);
 				return true;
 			}
 		});
+	}
 
-		this.sortList();
+	private createHero(snapshot: FirebaseDataSnapshot): Hero{
+		var hero = snapshot.val();
+		hero.key = snapshot.key();
+		return hero;
 	}
 
 	private sortList() {
