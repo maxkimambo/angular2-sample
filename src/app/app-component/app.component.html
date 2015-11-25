@@ -1,14 +1,61 @@
-<h1>{{title}}</h1>
-<div>
-    <nav>
-        <div class="nav-wrapper blue darken-4">
-          <ul id="nav-mobile" class="left">
-    		<li><a [router-link]="['/Dashboard']">Dashboard</a></li>
-            <li><a [router-link]="['/Heroes']">List</a></li>
-          </ul>
+<!-- Static navbar -->
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">{{title}}</a>
         </div>
-    </nav>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a [router-link]="['/Dashboard']"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+                <li><a [router-link]="['/Heroes']"><i class="fa fa-list"></i> List</a></li>
+                <li><a [router-link]="['/Add']"><i class="fa fa-user-plus"></i> Add</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
+
+    <!--different views displayed here-->
     <div class="container">
         <router-outlet></router-outlet>
      </div>
+
+<!-- +++++ Footer Section +++++ -->
+
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h4>KS Ignite</h4>
+                <p>
+                    Scharnhorst str 3
+                    <br/> 10367
+                    <br/> Berlin.
+                </p>
+            </div>
+            <!-- /col-lg-4 -->
+
+            <div class="col-lg-4">
+                <h4>Links</h4>
+                <p>
+                    <a href="#">Github</a>
+                </p>
+            </div>
+            <!-- /col-lg-4 -->
+
+            <div class="col-lg-4">
+                <h4>About KS Ignite</h4>
+                <p>Introduction to AngularJS2 Framework</p>
+            </div>
+            <!-- /col-lg-4 -->
+
+        </div>
+
+    </div>
 </div>
