@@ -1,6 +1,17 @@
 /// <reference path="../../typings/firebase/firebase.d.ts" />
-
+import {Pipe} from 'angular2/angular2'; 
 const FIREBASE_URL = 'https://heroes2015.firebaseio.com/';
+
+@Pipe({
+	name: 'searchPipe'
+})
+export class SearchPipe {
+	transform(value,args){
+		console.log('searching for', args[0]); 
+		console.log(value); 
+		return value; 
+	}
+}
 
 export class Hero{
 	key: string;
@@ -12,7 +23,8 @@ export class Hero{
 export class HeroService{
 	firebase : Firebase;
 	heroList : Hero[];
-
+	Promise: Promise<Hero[]>;
+	
 	constructor(){
 		this.firebase = new Firebase(FIREBASE_URL);
 		this.heroList = [];
@@ -58,7 +70,7 @@ export class HeroService{
 	getHeroes():Hero[]{
 		return this.heroList;
 	}
-
+	
 	remove(hero: Hero){
 		var ref = this.firebase.child(hero.key);
 		ref.remove();

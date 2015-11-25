@@ -1,10 +1,11 @@
 import {Pipe} from 'angular2/angular2'; 
 
 @Pipe({
-	name: 'SearchPipe'
+	name: 'searchPipe'
 })
 export class SearchPipe {
-	transform(value){
+	transform(value,args){
+		console.log('searching for', args[0]); 
 		console.log(value); 
 		return value; 
 	}

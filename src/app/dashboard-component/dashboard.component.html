@@ -10,11 +10,10 @@
 </div>
 
 <div class="row">
-    <div class="col-md-3" *ng-for="#hero of getHeroes()">
+    <div class="col-md-3" *ng-for="#hero of Heroes | searchPipe : seachField">
         <div class="thumbnail">
             <div class="caption">
-                <h4 class="">{{hero.name | SearchPipe:searchField.value }}</h4>
-                <hero-card [hero]="hero"></hero-card>
+                        <hero-card [hero]="hero"></hero-card>
                 <a href="#" class="btn btn-success btn" role="button">Rate</a>
             </div>
         </div>
