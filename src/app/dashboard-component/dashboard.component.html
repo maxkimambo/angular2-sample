@@ -1,12 +1,22 @@
+<div class="row search">
+        
+            <div class="form-group">
+               <div class="col-md-5">
+                    <input type="text" #search-field class="form-control input-sm" id="searchField" placeholder="Search ..">
+               </div>
+               <button (click)="search(searchField.value)" class="btn btn-success">Search</button>
+            </div>
+      
+</div>
 
- <div class="row">
-        <div class="col-md-3" *ng-for="#hero of getHeroes()">
-            <div class="thumbnail">
-                 <div class="caption">
-                    <h4 class="">{{hero.name}}</h4>
-						<hero-card [hero]="hero"></hero-card>
-                    <a href="#" class="btn btn-success btn" role="button">Rate</a>
-                </div>
+<div class="row">
+    <div class="col-md-3" *ng-for="#hero of getHeroes()">
+        <div class="thumbnail">
+            <div class="caption">
+                <h4 class="">{{hero.name | SearchPipe:searchField.value }}</h4>
+                <hero-card [hero]="hero"></hero-card>
+                <a href="#" class="btn btn-success btn" role="button">Rate</a>
             </div>
         </div>
- </div>
+    </div>
+</div>
