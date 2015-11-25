@@ -16,6 +16,6 @@ export class DetailsComponent {
 	constructor(private _heroService: HeroService){}
 
 	onSubmit(hero: Hero) {
-		this._heroService.saveHero(hero);
+		this._heroService.save(hero);
 	}
 }
