@@ -3,13 +3,16 @@ import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router'
 import {HeroesComponent} from '../heroes-component/heroes.component';
 import {DashboardComponent} from '../dashboard-component/dashboard.component';
 import {AddComponent} from '../add-component/add.component';
+import {DetailsComponent} from '../details-component/details.component';
+
 
 import {HeroService} from '../hero.service';
 
 @RouteConfig([
-    {path: '/', as: 'Dashboard', component: DashboardComponent},
+    {path: '/', as: 'Dashboard', component: DashboardComponent },
     {path: '/list', as: 'Heroes', component: HeroesComponent},
-    {path: '/add', as: 'Add', component:AddComponent }
+    {path: '/add', as: 'Add', component: AddComponent },
+    {path: '/details', as: 'Details', component: DetailsComponent }
 ])
 @Component({
 	selector: 'my-app',
