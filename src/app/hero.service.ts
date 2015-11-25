@@ -18,11 +18,17 @@ export class HeroService{
 		this.heroList = [];
 
 		this.firebase.on('child_added',
-			snapshot => this.addHero(snapshot),
+			snapshot => {
+				this.heroList.push(this.createHero(snapshot));
+				this.sortList();
+			},
 			errorObject => console.log('The read failed', errorObject.code)
 		);
 		this.firebase.on('child_changed',
-			snapshot => this.changeHero(snapshot),
+			snapshot => {
+				this.changeHero(snapshot);
+				this.sortList();
+			},
 			errorObject => console.log('The read failed', errorObject.code)
 		);
 	}
@@ -46,13 +52,6 @@ export class HeroService{
 		return this.heroList;
 	}
 
-	private addHero(snapshot: FirebaseDataSnapshot) {
-		var hero = this.createHero(snapshot);
-		this.heroList.push(hero);
-
-		this.sortList();
-	}
-
 	private changeHero(snapshot: FirebaseDataSnapshot) {
 		var key = snapshot.key();
 
@@ -64,8 +63,6 @@ export class HeroService{
 				return true;
 			}
 		});
-
-		this.sortList();
 	}
 
 	private createHero(snapshot: FirebaseDataSnapshot): Hero{
