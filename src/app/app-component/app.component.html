@@ -7,24 +7,24 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">{{title}}</a>
+            <a class="navbar-brand" href="#">{{title}}</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a [router-link]="['/Dashboard']"><i class="fa fa-tachometer"></i> Dashboard</a></li>
                 <li><a [router-link]="['/Heroes']"><i class="fa fa-list"></i> List</a></li>
                 <li><a [router-link]="['/Add']"><i class="fa fa-user-plus"></i> Add</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="#">About</a></li>
             </ul>
         </div>
         <!--/.nav-collapse -->
     </div>
 </div>
 
-    <!--different views displayed here-->
-    <div class="container">
-        <router-outlet></router-outlet>
-     </div>
+<!--different views displayed here-->
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
 
 <!-- +++++ Footer Section +++++ -->
 
