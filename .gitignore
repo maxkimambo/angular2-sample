@@ -7,3 +7,5 @@ src/**/*.map
 
 # Logs
 npm-debug.log*
+
+.DS_Store
