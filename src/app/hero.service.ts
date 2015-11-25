@@ -37,8 +37,8 @@ export class HeroService{
 		ref.update(newValues);
 	}
 
-	add(hero: Hero){
-		var newHero = { name:hero.name, score:hero.score, skills: hero.skills };
+	add(name: string, score: string, skills: string){
+		var newHero = { name:name, score:score, skills: skills };
 	  this.firebase.push(newHero);
 	}
 
@@ -70,6 +70,7 @@ export class HeroService{
 
 	private createHero(snapshot: FirebaseDataSnapshot): Hero{
 		var hero = snapshot.val();
+		hero.key = snapshot.key();
 		return hero;
 	}
 
